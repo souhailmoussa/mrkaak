@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mr. KAAK Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Mr. KAAK</h1>
+      <p>Welcome! Scan the QR again anytime to view the latest menu.</p>
+    </header>
+
+    <!-- If your image is the entire menu -->
+    <figure class="menu-image">
+      <img src="menu.jpg" alt="Mr. KAAK menu" />
+      <figcaption>Prices & items subject to availability.</figcaption>
+    </figure>
+
+    <!-- OPTIONAL: If later you want selectable text (better for search/accessibility), 
+         you can replace the image with real HTML sections for Starters / Mains / Drinks, etc. -->
+  </main>
+  <footer class="footer">© <span id="year"></span> Mr. KAAK</footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
