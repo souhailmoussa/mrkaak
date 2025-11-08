@@ -2,27 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mr. KAAK Menu</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MR. KAAK — Menu</title>
+  <style>
+    :root{
+      --bg:#0b0b0b;        /* black background */
+      --fg:#ffffff;        /* main text */
+      --muted:#c9c9c9;     /* secondary text */
+      --accent:#ff8a00;    /* orange accent */
+      --card:#141414;      /* panels */
+      --maxw: 1100px;
+      --radius: 16px;
+      --space: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.6;
+    }
+
+    /* Header / hero */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-bottom: 1px solid #1f1f1f;
+      background: radial-gradient(1200px 400px at -10% -20%, var(--accent) 0%, transparent 60%),
+                  radial-gradient(800px 240px at 110% 120%, var(--accent) 0%, transparent 60%),
+                  linear-gradient(180deg, #101010 0%, #0b0b0b 100%);
+    }
+    .hero-inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding: clamp(20px, 4vw, 40px);
+      display:grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(16px, 3vw, 36px);
+      align-items:center;
+    }
+    .brand h1{
+      margin:0 0 6px 0;
+      font-size: clamp(28px, 6vw, 54px);
+      letter-spacing:1px;
+      font-weight:900;
+    }
+    .brand h1 .accent{ color: var(--accent); }
+    .brand p{ margin:.25rem 0 0 0; color:var(--muted) }
+    .hero img{
+      width:100%; height:auto; display:block;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      object-fit:cover;
+    }
+
+    /* Content */
+    .wrap{ max-width:var(--maxw); margin: 0 auto; padding: clamp(16px, 3.2vw, 28px); }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(16px, 3vw, 28px);
+    }
+    .card{
+      background: var(--card);
+      border:1px solid #1f1f1f;
+      border-radius: var(--radius);
+      padding: clamp(14px, 2.6vw, 22px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .card h2{
+      margin:0 0 8px 0;
+      font-size: clamp(18px, 3.2vw, 26px);
+      letter-spacing:.5px;
+    }
+    .card h2 span{ color: var(--accent); }
+    ul.menu{
+      margin: 8px 0 0 0;
+      padding-left: 20px;
+    }
+    ul.menu li{
+      margin:.35rem 0;
+    }
+
+    /* Info strip */
+    .info{
+      margin-top: var(--space);
+      display:flex; gap:14px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size: 14px;
+    }
+    .pill{
+      background:#111; border:1px solid #232323; padding:8px 12px; border-radius:999px;
+    }
+    .pill strong{ color:var(--fg) }
+
+    /* Footer */
+    footer{
+      text-align:center; color:var(--muted);
+      border-top:1px solid #1f1f1f;
+      padding:22px 12px 34px;
+      margin-top: var(--space);
+      font-size:14px;
+    }
+
+    /* Mobile */
+    @media (max-width: 820px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <header class="header">
-      <h1>Mr. KAAK</h1>
-      <p>Welcome! Scan the QR again anytime to view the latest menu.</p>
-    </header>
+  <!-- HERO / BRAND -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <h1><span class="accent">MENU</span><br/>MR. KAAK</h1>
+        <p>Freshly toasted, melty &amp; delicious. Browse the menu below.</p>
+      </div>
+      <!-- Use your provided image as a hero shot -->
+      <img src="menu.jpg" alt="Mr. Kaak sandwiches with melted cheese" />
+    </div>
+  </header>
 
-    <!-- If your image is the entire menu -->
-    <figure class="menu-image">
-      <img src="menu.jpg" alt="Mr. KAAK menu" />
-      <figcaption>Prices & items subject to availability.</figcaption>
-    </figure>
+  <!-- MENU SECTIONS -->
+  <main class="wrap">
+    <div class="grid">
+      <!-- Savory -->
+      <section class="card" aria-labelledby="savory-title">
+        <h2 id="savory-title"><span>•</span> Savory</h2>
+        <ul class="menu">
+          <li>Picon</li>
+          <li>Akawi</li>
+          <li>Akawi + Picon</li>
+          <li>Akawi + Mozzarella + Picon</li>
+          <li>4 Cheese</li>
+          <li>Hot Dog</li>
+          <li>Sejok</li>
+          <li>Turkey + Cheese</li>
+          <li>Peperoni</li>
+          <li>Fajitas</li>
+          <li>Labne + Khodra</li>
+          <li>Labne + Batenjen Makbous</li>
+        </ul>
+      </section>
 
-    <!-- OPTIONAL: If later you want selectable text (better for search/accessibility), 
-         you can replace the image with real HTML sections for Starters / Mains / Drinks, etc. -->
+      <!-- Sweet -->
+      <section class="card" aria-labelledby="sweet-title">
+        <h2 id="sweet-title"><span>•</span> Sweet</h2>
+        <ul class="menu">
+          <li>Nutella + Cheese</li>
+          <li>Nutella</li>
+        </ul>
+
+        <!-- contact/location block -->
+        <div class="info" role="contentinfo" aria-label="Location and delivery">
+          <div class="pill">📍 <strong>Exit Jdideh</strong> — behind Whish Money</div>
+          <div class="pill">🚚 Delivery: <strong>70-202677</strong></div>
+        </div>
+      </section>
+    </div>
   </main>
-  <footer class="footer">© <span id="year"></span> Mr. KAAK</footer>
+
+  <footer>
+    © <span id="year"></span> MR. KAAK — All rights reserved.
+  </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
